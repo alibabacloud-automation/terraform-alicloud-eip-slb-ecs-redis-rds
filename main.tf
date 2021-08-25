@@ -71,10 +71,6 @@ resource "alicloud_kvstore_instance" "default" {
   security_ips          = var.security_ips
   instance_type         = var.redis_instance_type
   engine_version        = var.redis_engine_version
-//  config = {
-//    appendonly = var.redis_appendonly,
-//    lazyfree-lazy-eviction = var.redis_lazyfree-lazy-eviction,
-//  }
   zone_id               = var.zone_id
   instance_class        = var.redis_instance_class
 }
