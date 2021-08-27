@@ -1,11 +1,3 @@
-output "this_vpc_id" {
-  value = alicloud_vpc.default.id
-}
-
-output "this_vswitch_id" {
-  value = alicloud_vswitch.default.id
-}
-
 output "this_security_group_id" {
   value = alicloud_security_group.default.id
 }

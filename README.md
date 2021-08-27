@@ -33,8 +33,10 @@ These types of resources are supported:
 
 ```hcl
 module "tf-eip-slb-ecs-redis-rds" {
-  source            = "../"
-  name              = "tf-eip-slb-ecs-rds"
+  profile           = "Your-Profile-Name"
+  region            = "cn-hangzhou"
+  source            = "terraform-alicloud-modules/eip-slb-ecs-redis-polardb/alicloud"
+  name              = "tf-eip-slb-ecs-redis-polar_db"
   instance_type     = "ecs.n4.large"
   rds_instance_type = "rds.mysql.s2.large"
   slb_address_type  = "intranet"
