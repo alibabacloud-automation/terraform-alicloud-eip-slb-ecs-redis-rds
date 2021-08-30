@@ -32,7 +32,7 @@ These types of resources are supported:
 ## Usage
 
 ```hcl
-module "tf-eip-slb-ecs-redis-rds" {
+module "tf-eip-slb-ecs-redis-polardb" {
   profile           = "Your-Profile-Name"
   region            = "cn-hangzhou"
   source            = "terraform-alicloud-modules/eip-slb-ecs-redis-polardb/alicloud"

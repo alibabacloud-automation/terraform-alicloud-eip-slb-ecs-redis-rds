@@ -32,7 +32,7 @@ terraform-alicloud-eip-slb-ecs-redis-rds
 ## 用法
 
 ```hcl
-module "tf-eip-slb-ecs-redis-rds" {
+module "tf-eip-slb-ecs-redis-polardb" {
   profile           = "Your-Profile-Name"
   region            = "cn-hangzhou"
   source            = "terraform-alicloud-modules/eip-slb-ecs-redis-polardb/alicloud"
@@ -57,7 +57,7 @@ module "tf-eip-slb-ecs-redis-rds" {
 
 ## 作者
 
-Created and maintained by Will(ppnjy@qq.com)
+Created and maintained by maiqiao(bj090628@163.com)
 
 ## 许可
 
