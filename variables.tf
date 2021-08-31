@@ -1,7 +1,7 @@
 variable "name" {
   description = "The specification of module name."
   type        = string
-  default     = "tf-eip-slb-ecs-rds"
+  default     = "tf-eip-slb-ecs-redis-rds"
 }
 
 variable "description" {
@@ -14,29 +14,6 @@ variable "zone_id" {
   description = "The specification of zone msg."
   type        = string
   default     = "cn-hangzhou-e"
-}
-
-variable "vpc_id" {
-  description = "The specification of vpc_id."
-  type        = string
-  default     = "123"
-}
-variable "vswitch_id" {
-  description = "The specification of vswitch_id."
-  type        = string
-  default     = "testab1234"
-}
-
-variable "available_disk_category" {
-  description = "The specification of available disk category."
-  type        = string
-  default     = "cloud_efficiency"
-}
-
-variable "available_resource_creation" {
-  description = "The specification of available resource creation."
-  type        = string
-  default     = "PolarDB"
 }
 
 variable "vpc_cidr_block" {
@@ -203,4 +180,22 @@ variable "eip_internet_charge_type" {
   description = "The specification of the eip internet charge type."
   type        = string
   default     = "PayByBandwidth"
+}
+
+variable "availability_zone" {
+  description = "The available zone to launch modules."
+  type        = string
+  default     = ""
+}
+
+variable "vswitch_id" {
+  description = "VSwitch variables, if vswitch_id is empty, then the net_type = classic."
+  type        = string
+  default     = ""
+}
+
+variable "security_group_ids" {
+  description = "A list of security group ids to associate with."
+  type        = list(string)
+  default     = []
 }

@@ -1,9 +1,3 @@
-resource "alicloud_security_group" "default" {
-  vpc_id      = var.vpc_id
-  name        = var.name
-  description = var.description
-}
-
 resource "alicloud_eip" "default" {
   bandwidth            = var.eip_bandwidth
   internet_charge_type = var.eip_internet_charge_type
@@ -22,7 +16,7 @@ resource "alicloud_slb_load_balancer" "default" {
 resource "alicloud_instance" "default" {
   availability_zone          = var.zone_id
   instance_name              = var.name
-  security_groups            = alicloud_security_group.default.*.id
+  security_groups            = var.security_group_ids
   vswitch_id                 = var.vswitch_id
   instance_type              = var.instance_type
   system_disk_category       = var.system_disk_category
@@ -40,13 +34,13 @@ resource "alicloud_instance" "default" {
 }
 
 resource "alicloud_kvstore_instance" "default" {
-  db_instance_name      = var.redis_instance_name
-  vswitch_id            =  var.vswitch_id
-  security_ips          = var.security_ips
-  instance_type         = var.redis_instance_type
-  engine_version        = var.redis_engine_version
-  zone_id               = var.zone_id
-  instance_class        = var.redis_instance_class
+  db_instance_name = var.redis_instance_name
+  vswitch_id       = var.vswitch_id
+  security_ips     = var.security_ips
+  instance_type    = var.redis_instance_type
+  engine_version   = var.redis_engine_version
+  zone_id          = var.zone_id
+  instance_class   = var.redis_instance_class
 }
 
 resource "alicloud_db_instance" "default" {

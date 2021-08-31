@@ -1,4 +1,4 @@
-Alicloud EIP&SLB&ECS&RDS Terraform Module On Alibaba Cloud
+Terraform module which creates lightweight web service with EIP&SLB&ECS&RDS on Alibaba Cloud
 
 terraform-alicloud-eip-slb-ecs-redis-rds
 ---
@@ -15,28 +15,12 @@ terraform-alicloud-eip-slb-ecs-redis-rds
 * [alicloud_eip](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/eip)
 * [alicloud_kvstore_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/kvstore_instance)
 
-
-## 版本要求
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
-| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.131.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.131.0 |
-
 ## 用法
 
 ```hcl
-module "tf-eip-slb-ecs-redis-polardb" {
-  profile           = "Your-Profile-Name"
-  region            = "cn-hangzhou"
-  source            = "terraform-alicloud-modules/eip-slb-ecs-redis-polardb/alicloud"
-  name              = "tf-eip-slb-ecs-redis-polar_db"
+module "example" {
+  source            = "terraform-alicloud-modules/eip-slb-ecs-redis-rds/alicloud"
+  name              = "tf-eip-slb-ecs-redis-rds"
   instance_type     = "ecs.n4.large"
   rds_instance_type = "rds.mysql.s2.large"
   slb_address_type  = "intranet"
@@ -48,6 +32,19 @@ module "tf-eip-slb-ecs-redis-polardb" {
 * 本 Module 使用的 AccessKey 和 SecretKey 可以直接从 `profile` 和 `shared_credentials_file`
   中获取。如果未设置，可通过下载安装 [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) 后进行配置.
 
+## 要求
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.56.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.56.0 |
+
 ## 提交问题
 
 如果在使用该 Terraform Module
@@ -57,7 +54,7 @@ module "tf-eip-slb-ecs-redis-polardb" {
 
 ## 作者
 
-Created and maintained by maiqiao(bj090628@163.com)
+Created and maintained by Will(ppnjy@qq.com)
 
 ## 许可
 

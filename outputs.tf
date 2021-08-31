@@ -1,7 +1,3 @@
-output "this_security_group_id" {
-  value = alicloud_security_group.default.id
-}
-
 output "this_ecs_id" {
   value = alicloud_instance.default.id
 }
@@ -20,4 +16,8 @@ output "this_eip_id" {
 
 output "this_redis_instance_id" {
   value = alicloud_kvstore_instance.default.id
+}
+
+output "this_ecs_name" {
+  value = alicloud_instance.default.instance_name
 }

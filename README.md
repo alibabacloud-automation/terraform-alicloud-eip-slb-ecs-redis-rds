@@ -1,4 +1,4 @@
-Alicloud EIP&SLB&ECS&RDS Terraform Module On Alibaba Cloud
+Terraform module which creates lightweight web service with EIP&SLB&ECS&RDS on Alibaba Cloud
 
 terraform-alicloud-eip-slb-ecs-redis-rds
 ---
@@ -15,28 +15,12 @@ These types of resources are supported:
 * [alicloud_eip](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/eip)
 * [alicloud_kvstore_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/kvstore_instance)
 
-
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
-| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.131.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.131.0 |
-
 ## Usage
 
 ```hcl
-module "tf-eip-slb-ecs-redis-polardb" {
-  profile           = "Your-Profile-Name"
-  region            = "cn-hangzhou"
-  source            = "terraform-alicloud-modules/eip-slb-ecs-redis-polardb/alicloud"
-  name              = "tf-eip-slb-ecs-redis-polar_db"
+module "example" {
+  source            = "terraform-alicloud-modules/eip-slb-ecs-redis-rds/alicloud"
+  name              = "tf-eip-slb-ecs-redis-rds"
   instance_type     = "ecs.n4.large"
   rds_instance_type = "rds.mysql.s2.large"
   slb_address_type  = "intranet"
@@ -48,6 +32,19 @@ module "tf-eip-slb-ecs-redis-polardb" {
 * This module using AccessKey and SecretKey are from `profile` and `shared_credentials_file`. If you have not set them
   yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
 
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.56.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.56.0 |
+
 ## Submit Issues
 
 If you have any problems when using this module, please opening
@@ -57,7 +54,7 @@ a [provider issue](https://github.com/aliyun/terraform-provider-alicloud/issues/
 
 ## Authors
 
-Created and maintained by maiqiao(bj090628@16.com)
+Created and maintained by Will(ppnjy@qq.com)
 
 ## License
 
