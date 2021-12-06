@@ -13,7 +13,7 @@ variable "description" {
 variable "zone_id" {
   description = "The specification of zone msg."
   type        = string
-  default     = "cn-hangzhou-e"
+  default     = ""
 }
 
 variable "vpc_cidr_block" {
@@ -31,7 +31,7 @@ variable "vswitch_cidr_block" {
 variable "instance_type" {
   description = "The specification of the instance type."
   type        = string
-  default     = "ecs.n4.large"
+  default     = "ecs.g5.large"
 }
 
 variable "system_disk_category" {
