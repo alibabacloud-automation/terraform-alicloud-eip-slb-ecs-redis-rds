@@ -189,32 +189,3 @@ variable "monitoring_period" {
   default     = "60"
 }
 
-variable "vpc_cidr_block" {
-  description = "The specification of the vpc cidr block."
-  type        = string
-  default     = "192.168.0.0/16"
-}
-
-variable "vswitch_cidr_block" {
-  description = "The specification of the vswitch cidr block."
-  type        = string
-  default     = "192.168.1.0/24"
-}
-
-variable "redis_appendonly" {
-  description = "The specification of the redis instance class."
-  type        = string
-  default     = "redis.master.large.default"
-}
-
-variable "redis_lazyfree-lazy-eviction" {
-  description = "The specification of the redis instance class."
-  type        = string
-  default     = "redis.master.large.default"
-}
-
-variable "availability_zone" {
-  description = "The available zone to launch modules."
-  type        = string
-  default     = ""
-}
