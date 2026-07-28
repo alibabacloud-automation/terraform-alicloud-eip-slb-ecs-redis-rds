@@ -2,16 +2,18 @@ provider "alicloud" {
   region = "ap-southeast-5"
 }
 
-data "alicloud_zones" "default" {
-  available_resource_creation = "KVStore"
+data "alicloud_db_zones" "default" {
+  engine         = "MySQL"
+  engine_version = "5.7"
 }
 
 locals {
-  zone_id = data.alicloud_zones.default.zones[0].id
+  zone_id = data.alicloud_db_zones.default.zones[0].id
 }
 
 data "alicloud_images" "default" {
   most_recent   = true
+  owners        = "system"
   instance_type = data.alicloud_instance_types.default.instance_types[0].id
 }
 
@@ -24,7 +26,7 @@ data "alicloud_instance_types" "default" {
 
 data "alicloud_db_instance_classes" "default" {
   engine         = "MySQL"
-  engine_version = "5.6"
+  engine_version = "5.7"
 }
 
 data "alicloud_kvstore_instance_classes" "default" {
@@ -40,7 +42,7 @@ module "vpc" {
   create             = true
   vpc_cidr           = "172.16.0.0/12"
   vswitch_cidrs      = ["172.16.0.0/21"]
-  availability_zones = [data.alicloud_zones.default.zones[0].id]
+  availability_zones = [local.zone_id]
 }
 
 module "security_group" {
@@ -65,7 +67,7 @@ module "example" {
   slb_tags_info    = var.slb_tags_info
 
   #alicloud_instance
-  zone_id                    = data.alicloud_zones.default.zones[0].id
+  zone_id                    = local.zone_id
   security_group_ids         = [module.security_group.this_security_group_id]
   instance_type              = data.alicloud_instance_types.default.instance_types[0].id
   system_disk_category       = "cloud_essd"
@@ -88,8 +90,8 @@ module "example" {
 
   #alicloud_db_instance
   engine               = "MySQL"
-  engine_version       = "5.6"
-  rds_instance_type    = data.alicloud_db_instance_classes.default.instance_classes[1].instance_class
+  engine_version       = "5.7"
+  rds_instance_type    = data.alicloud_db_instance_classes.default.instance_classes[0].instance_class
   instance_storage     = var.instance_storage
   instance_charge_type = var.instance_charge_type
   monitoring_period    = var.monitoring_period
